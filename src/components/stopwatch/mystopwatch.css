@@ -1,29 +1,31 @@
 .main {
     position: absolute;
+    width: 100%;
     bottom: 0;
-    width: 100%;
     padding: 20px;
-    border: 1px solid red;
+    background-color: rgb(252, 245, 234);
+    box-shadow: 0 0 5px 0px #ccc;
 }
-
-/* .app {
-    border: 2px solid white;
-    text-align: center;
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-    height: 100%;
-    width: 100%;
-} */
 
 .app {
     display: flex;
-    justify-content: center;
+    /* use justify-center to set item in horizontal center */
+    justify-content: start;
+    /* use align-item in vertical center */
     align-items: center;
-    border: 1px solid green;
+    font-weight: bold;
+    font-size: 30px;
+    gap: 30px;
+    color: rgb(234, 150, 150);
+    ;
+}
+
+.icon {
+    color: rgb(234, 150, 150);
+}
+
+.projectTitle {
+    color: black;
+    font-size: 25px;
+
 }

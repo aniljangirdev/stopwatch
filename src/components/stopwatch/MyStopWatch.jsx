@@ -1,10 +1,15 @@
 import { useStopwatch } from "react-timer-hook";
 import './mystopwatch.css'
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
+import StopIcon from '@mui/icons-material/Stop';
+import { Fragment, useState } from "react";
 
 const MyStopwatch = () => {
 
+    const [stopwatch, setStopWatch] = useState(false)
+
     const {
-        totalSeconds,
         seconds,
         minutes,
         hours,
@@ -14,21 +19,30 @@ const MyStopwatch = () => {
         pause,
         reset,
     } = useStopwatch({ autoStart: true });
-
-    return (
-        <div className="main">
-            <div className='app'>
-                <button onClick={start}>Start</button>
-                <button onClick={pause}>Pause</button>
-                <button onClick={reset}>Reset</button>
-                <div style={{ fontSize: '100px' }}>
-                    <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+    function handleClick() {
+        setStopWatch(flag => !flag);
+    }
+    const showStopWatchTimer = () => {
+        return (
+            <div className="main">
+                <div className='app'>
+                    <StopIcon onClick={reset} className="icon" />
+                    {isRunning ? <PauseIcon onClick={pause} className="icon" /> : <PlayArrowIcon onClick={start} className="icon" />}
+                    <span className="projectTitle">Reporting Hours for Netsmart - Anil</span>
+                    <div>
+                        <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+                    </div>
                 </div>
-                <p>{isRunning ? 'Running' : 'Not running'}</p>
             </div>
-        </div>
-
+        )
+    }
+    return (
+        <Fragment>
+            <button style={{ backgroundColor: 'red' }} onClick={handleClick}>Track</button>
+            {
+                stopwatch ? showStopWatchTimer() : ''
+            }
+        </Fragment>
     )
 }
-
 export default MyStopwatch;
