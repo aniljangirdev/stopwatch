@@ -30,15 +30,24 @@ const MyStopwatch = () => {
                     {isRunning ? <PauseIcon onClick={pause} className="icon" /> : <PlayArrowIcon onClick={start} className="icon" />}
                     <span className="projectTitle">Reporting Hours for Netsmart - Anil</span>
                     <div>
-                        <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+                        <span>{getNumberFormatter(hours)}</span>:<span>{getNumberFormatter(minutes)}</span>:<span>{getNumberFormatter(seconds)}</span>
                     </div>
                 </div>
             </div>
         )
     }
+
+    const getNumberFormatter = (val) => {
+        return val.toLocaleString('en-US', {
+            minimumIntegerDigits: 2
+        })
+    }
+
     return (
         <Fragment>
-            <button style={{ backgroundColor: 'red' }} onClick={handleClick}>Track</button>
+            <>
+                <button style={{ backgroundColor: 'red' }} onClick={handleClick}>Track</button>
+            </>
             {
                 stopwatch ? showStopWatchTimer() : ''
             }
