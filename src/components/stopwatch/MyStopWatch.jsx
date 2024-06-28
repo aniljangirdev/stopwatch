@@ -23,6 +23,10 @@ const MyStopwatch = () => {
         setStopWatch(flag => !flag);
     }
     const showStopWatchTimer = () => {
+
+        console.log(process.env.REACT_APP_NOT_SECRET_CODE)
+
+
         return (
             <div className="main">
                 <div className='app'>
@@ -46,7 +50,7 @@ const MyStopwatch = () => {
     return (
         <Fragment>
             <>
-                <button style={{ backgroundColor: 'red' }} onClick={handleClick}>Track</button>
+                <button style={{ padding: '10px', margin: '20px' }} onClick={handleClick}>Track</button>
             </>
             {
                 stopwatch ? showStopWatchTimer() : ''

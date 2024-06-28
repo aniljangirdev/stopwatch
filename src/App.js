@@ -1,7 +1,10 @@
-import MyStopwatch from "./components/stopwatch/MyStopWatch";
+import Headers from "./Header/Headers";
 
 function App() {
-  return <MyStopwatch></MyStopwatch>
+  console.log(process.env.REACT_APP_NOT_SECRET_CODE)
+  return (
+    <Headers></Headers>
+  )
 }
 
 export default App;
